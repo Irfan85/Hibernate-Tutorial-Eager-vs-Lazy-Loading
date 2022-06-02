@@ -38,8 +38,8 @@ public class Instructor {
 	private InstructorDetail instructorDetail;
 	
 	// We don't want cascade for remove
-	// The default fetch type for OneToMany is Lazy. However, we will explicitly set it here to Eager
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "instructor", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	// The default fetch type for OneToMany is Lazy. But we're setting it explicitly anyway for demonstration
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	private List<Course> courses;
 	
 	public Instructor() {
